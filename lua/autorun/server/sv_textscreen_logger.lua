@@ -1,7 +1,7 @@
-TEXTSCREENLOGGER = {}
-TEXTSCREENLOGGER.prefix = "[TSL]"
-TEXTSCREENLOGGER.loggers = {}
-TEXTSCREENLOGGER.ranksToReceiveLog = {
+TextScreenManager = {}
+TextScreenManager.prefix = "[TSM]"
+TextScreenManager.loggers = {}
+TextScreenManager.ranksToReceiveLog = {
     ["admin"] = true,
     ["moderator"] = true,
     ["operator"] = true,
@@ -9,4 +9,4 @@ TEXTSCREENLOGGER.ranksToReceiveLog = {
     ["Trial Staff"] = true
 }
 
-include( "textscreen_logger/sv_core.lua" )
+include( "textscreen_manager/sv_core.lua" )

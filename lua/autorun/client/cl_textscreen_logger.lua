@@ -1,4 +1,3 @@
-net.Receive( "TextScreenLoggerLog", function()
-    local logString = net.ReadString()
-    print( logString )
+net.Receive( "TextScreenManagerLog", function()
+    print( net.ReadString() )
 end )
