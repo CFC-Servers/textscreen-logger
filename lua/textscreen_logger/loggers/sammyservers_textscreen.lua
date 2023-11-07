@@ -15,12 +15,14 @@ TEXTSCREENLOGGER.loggers[class] = function( ent )
     return text
 end
 
-local ts = scripted_ents.GetStored( class ).t
-ts._SetLine = ts._SetLine or ts.SetLine
+hook.Add( "InitPostEntity", "TSL_WrapSammysScreen", function()
+    local ts = scripted_ents.GetStored( class ).t
+    ts._SetLine = ts._SetLine or ts.SetLine
 
-ts.SetLine = function( self, line, text, ... )
-    local owner = self:CPPIGetOwner()
-    TEXTSCREENLOGGER.log( owner, class, text )
-    hook.Run( "TSLScreenSpawned", self, owner, class, text )
-    return ts._SetLine( self, line, text, ... )
-end
+    ts.SetLine = function( self, line, text, ... )
+        local owner = self:CPPIGetOwner()
+        TEXTSCREENLOGGER.log( owner, class, text )
+        hook.Run( "TSLScreenSpawned", self, owner, class, text )
+        return ts._SetLine( self, line, text, ... )
+    end
+end )
